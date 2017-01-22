@@ -28,7 +28,7 @@ myWeekends <- c("yes","no")
 
 myDummy <- c("yes","no")
 
-
+csvDummy <- 'https://raw.githubusercontent.com/rjshanahan/Time-Series-Forecasting-with-Shiny/master/TIME_SERIES_DUMMY.csv'
 
 ############################################################
 ## shiny user interface function
@@ -62,6 +62,8 @@ shinyUI(
                                  "text/comma-separated-values,text/plain",
                                  ".csv")
                      ),
+                     h5("Try it out - download a dummy ", a("CSV with three daily time series", href=csvDummy, target="_blank")),
+                     h5('You can find many ', a("more time series here", href='https://datamarket.com/data/list/?q=interval:day%20provider:tsdl', target="_blank")),
                      tags$hr(),
                      selectInput(inputId="i_task_select", "Select Task",'',''),
                      sliderInput(inputId="i_forecast_n","Forecast periods",value=30,min=2,max=120,step=1),
@@ -73,15 +75,12 @@ shinyUI(
                      downloadButton('downloader', 'Download forecasts'),
                      width=3),
                      
-                     #width=3),
-                   
                    
                    column(width=9,
                           
                           tabsetPanel(type="tabs",
                                       
                                       #build forecasting panels
-                                      
                                       tabPanel("LOBF", icon = icon("bar-chart"), h4("Line of Best Fit (Linear Regression)"), br(), dygraphOutput("p_LOBF"), value=1),
                                       tabPanel("MF", icon = icon("bar-chart"), h4("Mean Forecast - Average of Entire Series"), br(), dygraphOutput("p_MF"), value=2),
                                       tabPanel("MA", icon = icon("line-chart"), h4("Moving Average Smoothing Model"), br(), dygraphOutput("p_MA"), value=3),

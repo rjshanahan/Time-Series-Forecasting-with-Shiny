@@ -247,8 +247,6 @@ server <- function(input,output,session) {
                    
                  })
     
-    
-    
     #forecast n periods using model
     TS_mySeries_FTARIMA_daily <- forecast(bestfit,
                                           xreg = myXReg_forecast)
