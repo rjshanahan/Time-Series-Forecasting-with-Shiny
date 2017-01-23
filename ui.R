@@ -28,7 +28,7 @@ myWeekends <- c("yes","no")
 
 myDummy <- c("yes","no")
 
-csvDummy <- 'https://raw.githubusercontent.com/rjshanahan/Time-Series-Forecasting-with-Shiny/master/TIME_SERIES_DUMMY.csv'
+csvDummy <- 'https://raw.githubusercontent.com/rjshanahan/Time-Series-Forecasting-with-Shiny/master/demo_csv/TIME_SERIES_DUMMY.csv'
 
 ############################################################
 ## shiny user interface function
@@ -103,12 +103,17 @@ shinyUI(
                    column(width=6,
                           h4("Performance Metrics"),
                           DT::dataTableOutput("performance_metrics"))
-                   )
+                   ),
+                 tags$div(id="cite",
+                          'Want to know more?', 
+                          a("visit my GitHub repository", href="https://github.com/rjshanahan/Time-Series-Forecasting-with-Shiny", target="_blank")
+                          )
                  
                )
       )
     )
 )
+
 
     
 
