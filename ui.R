@@ -65,7 +65,7 @@ shinyUI(
                      h5("Try it out - download a dummy ", a("CSV with three daily time series", href=csvDummy, target="_blank")),
                      h5('You can find many ', a("more time series here", href='https://datamarket.com/data/list/?q=interval:day%20provider:tsdl', target="_blank")),
                      tags$hr(),
-                     selectInput(inputId="i_task_select", "Select Task",'',''),
+                     selectInput(inputId="i_task_select", "Select Series",'',''),
                      sliderInput(inputId="i_forecast_n","Forecast periods",value=30,min=2,max=120,step=1),
                      radioButtons(inputId="i_weekends", "Include weekends", myWeekends, selected = myWeekends[2], inline = T),
                      radioButtons(inputId="i_dummy", "Adjust forecast for Events", myDummy, selected = myDummy[2], inline = T),
